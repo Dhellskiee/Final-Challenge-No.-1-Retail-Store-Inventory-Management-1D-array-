@@ -13,7 +13,7 @@ public class FinalChallenge {
        String[] proName = new String[size]; //this is the storage of the names of products
        double[] priceV = new double [size];//this is the storage of the price of products
           String[] subpriceV = new String [size];
-       double[] Quanti = new double [size];//this is the storage of the Quantity of products
+       int[] Quanti = new int [size];//this is the storage of the Quantity of products
           String[] subQuanti = new String [size];
        
        double[] ttlV = new double[size];// this is the storage for the value of Total value is priceV * Quanti and the result will insert here
@@ -59,7 +59,7 @@ public class FinalChallenge {
             while(true){
              subQuanti[i] = input.nextLine();
              try{
-                   Quanti[i]= Double.parseDouble(subQuanti[i]);
+                   Quanti[i]= Integer.parseInt(subQuanti[i]);
                    System.out.println("");
                       if (Quanti[i]<0){
                     System.out.print("Grabe naman yang Value mo boss...\n ulit: ");
@@ -76,10 +76,10 @@ public class FinalChallenge {
              ttlV[i] = priceV[i] * Quanti[i];
              
               System.out.println("");
-              System.out.println("Name\t Price\t Quantity\t Total Value ");
+    System.out.println("Name\t\t\tPrice\t\t\tQuantity\t\t\tTotal Value ");
               System.out.println("===================================================================");
            for (int all = 0; all < size;all++){
-              System.out.println( (all+1)+ ". "+proName[all] +"\t" + priceV[all]+ "\t  " + Quanti[all]+"\t\t" + ttlV[all] );
+    System.out.println( (all+1)+ ".  "+proName[all]+"  " +"\t\t" + priceV[all]+"  "+ "\t\t\t" + Quanti[all]+"  "+"\t\t\t" + ttlV[all] );
     }
               System.out.println("===================================================================");
 
@@ -93,10 +93,10 @@ public class FinalChallenge {
     System.out.println("            ========================================");
     System.out.println("");
     System.out.println("===================================================================");
-    System.out.println("Name\t Price\t Quantity \t Total Value ");
+    System.out.println("Name\t\t\tPrice\t\t\tQuantity\t\t\t Total Value ");
     System.out.println("-------------------------------------------------------------------");
         for (int all = 0; all < size;all++){
-    System.out.println( (all+1)+ ". "+proName[all] +"\t" + priceV[all]+ "\t   " + Quanti[all]+"\t\t" + ttlV[all] );
+    System.out.println( (all+1)+ ".  "+proName[all] +"  "+"\t\t\t" + priceV[all]+"  "+ "\t\t\t" + Quanti[all]+"  "+"\t\t\t" + ttlV[all] );
         }
     System.out.println("===================================================================");
    //this block add all the amount of total value
@@ -105,8 +105,30 @@ public class FinalChallenge {
     }
    
         System.out.println("Total: PhP "+ total);
+        double Avg = total / size;
+        System.out.println("Avarage: "+ Avg);
+        
+        
+        
+        
+        
+  
+      double highest = priceV[0];
+        double lowest = Quanti[0];
 
-      
+        for (int i = 1; i < ttlV.length; i++) {
+            if (ttlV[i] > highest) {
+                highest = ttlV[i];
+            }
+            if (ttlV[i] < lowest) {
+                lowest = ttlV[i];
+            }
+        }
+
+        System.out.println("Highest value: " + highest);
+        System.out.println("Lowest value: " + lowest);
+        
+        
         
     }
 }
